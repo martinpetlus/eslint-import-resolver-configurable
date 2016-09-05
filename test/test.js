@@ -8,6 +8,7 @@ var resolverPlugin = require('../src/index');
 var opts = {
   components: './dir/components',
   common: './dir/subdir/common',
+  common2: './dir/subdir2',
 };
 
 describe('eslint-import-resolver-configurable', function () {
@@ -38,6 +39,14 @@ describe('eslint-import-resolver-configurable', function () {
     expect(resolverPlugin.resolve('components/comp4', path.resolve(__dirname, 'file4.js'), {}))
       .to.eql({
         found: false,
+      });
+  });
+
+  it('should resolve when importing from common2 alias', function () {
+    expect(resolverPlugin.resolve('common2/comp5', path.resolve(__dirname, 'file5.js'), opts))
+      .to.eql({
+        found: true,
+        path: './dir/subdir2/comp5',
       });
   });
 });

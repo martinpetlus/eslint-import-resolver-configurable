@@ -5,7 +5,7 @@ exports.resolve = function resolve(source, file, config) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (alias in config) {
-    if (source.indexOf(alias) === 0) {
+    if (source.match(new RegExp('^' + alias + '(/|$)'))) {
       return {
         found: true,
         path: source.replace(alias, config[alias]),
