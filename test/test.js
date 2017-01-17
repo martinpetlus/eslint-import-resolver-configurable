@@ -2,8 +2,9 @@
 
 var path = require('path');
 var expect = require('chai').expect;
+var rewire = require('rewire');
 
-var resolverPlugin = require('../src/index');
+var resolverPlugin = rewire('../src/index');
 
 var opts = {
   components: './dir/components',
@@ -11,12 +12,15 @@ var opts = {
   common2: './dir/subdir2',
 };
 
+// eslint-disable-next-line no-underscore-dangle
+resolverPlugin.__set__('__dirname', __dirname);
+
 describe('eslint-import-resolver-configurable', function () {
   it('should resolve when importing from components alias', function () {
     expect(resolverPlugin.resolve('components/comp1', path.resolve(__dirname, 'file1.js'), opts))
       .to.eql({
         found: true,
-        path: './dir/components/comp1',
+        path: path.resolve(__dirname, 'dir/components/comp1.js'),
       });
   });
 
@@ -24,7 +28,7 @@ describe('eslint-import-resolver-configurable', function () {
     expect(resolverPlugin.resolve('common/comp2', path.resolve(__dirname, 'file2.js'), opts))
       .to.eql({
         found: true,
-        path: './dir/subdir/common/comp2',
+        path: path.resolve(__dirname, 'dir/subdir/common/comp2.js'),
       });
   });
 
@@ -46,7 +50,7 @@ describe('eslint-import-resolver-configurable', function () {
     expect(resolverPlugin.resolve('common2/comp5', path.resolve(__dirname, 'file5.js'), opts))
       .to.eql({
         found: true,
-        path: './dir/subdir2/comp5',
+        path: path.resolve(__dirname, 'dir/subdir2/comp5.js'),
       });
   });
 });
