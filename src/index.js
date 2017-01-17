@@ -1,14 +1,14 @@
-var resolvePkg = require('resolve');
+var resolve = require('resolve');
 var eslintrcUp = require('eslintrc-up');
 var path = require('path');
 
 exports.interfaceVersion = 2;
 
-exports.resolve = function resolve(source, file, config) {
+exports.resolve = function (source, file, config) {
   var alias;
   var src;
 
-  if (resolvePkg.isCore(source)) {
+  if (resolve.isCore(source)) {
     return { found: true, path: null };
   }
 
@@ -20,7 +20,7 @@ exports.resolve = function resolve(source, file, config) {
       try {
         return {
           found: true,
-          path: resolvePkg.sync(src, {
+          path: resolve.sync(src, {
             basedir: path.dirname(eslintrcUp.sync({ cwd: __dirname })),
           }),
         };
