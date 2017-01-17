@@ -8,6 +8,10 @@ exports.resolve = function resolve(source, file, config) {
   var alias;
   var src;
 
+  if (resolvePkg.isCore(source)) {
+    return { found: true, path: null };
+  }
+
   // eslint-disable-next-line no-restricted-syntax
   for (alias in config) {
     if (source.match(new RegExp('^' + alias + '(/|$)'))) {

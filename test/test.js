@@ -53,4 +53,12 @@ describe('eslint-import-resolver-configurable', function () {
         path: path.resolve(__dirname, 'dir/subdir2/comp5.js'),
       });
   });
+
+  it('should resolve when importing core node module', function () {
+    expect(resolverPlugin.resolve('fs', path.resolve(__dirname, 'file6.js'), opts))
+      .to.eql({
+        found: true,
+        path: null,
+      });
+  });
 });
