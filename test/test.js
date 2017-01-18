@@ -1,12 +1,12 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
-var path = require('path');
-var expect = require('chai').expect;
-var rewire = require('rewire');
+const path = require('path');
+const expect = require('chai').expect;
+const rewire = require('rewire');
 
-var resolverPlugin = rewire('../src/index');
+const resolverPlugin = rewire('../src/index');
 
-var opts = {
+const opts = {
   components: './dir/components',
   common: './dir/subdir/common',
   common2: './dir/subdir2',
