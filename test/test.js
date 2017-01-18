@@ -4,7 +4,7 @@ const path = require('path');
 const expect = require('chai').expect;
 const rewire = require('rewire');
 
-const resolverPlugin = rewire('../src/index');
+const resolverPlugin = rewire('../lib/index');
 
 const opts = {
   components: './dir/components',
