@@ -1,11 +1,11 @@
-const resolve = require('resolve');
+const resolvePkg = require('resolve');
 const eslintrcUp = require('eslintrc-up');
 const path = require('path');
 
-exports.interfaceVersion = 2;
+export const interfaceVersion = 2;
 
-exports.resolve = (source, file, config) => {
-  if (resolve.isCore(source)) {
+export function resolve(source, file, config) {
+  if (resolvePkg.isCore(source)) {
     return { found: true, path: null };
   }
 
@@ -17,7 +17,7 @@ exports.resolve = (source, file, config) => {
       try {
         return {
           found: true,
-          path: resolve.sync(src, {
+          path: resolvePkg.sync(src, {
             basedir: path.dirname(eslintrcUp.sync({ cwd: __dirname })),
           }),
         };
@@ -28,4 +28,4 @@ exports.resolve = (source, file, config) => {
   return {
     found: false,
   };
-};
+}
