@@ -16,6 +16,10 @@ const opts = {
 resolverPlugin.__set__('__dirname', __dirname);
 
 describe('eslint-import-resolver-configurable', () => {
+  it('should export interface version', () => {
+    expect(resolverPlugin.interfaceVersion).to.equal(2);
+  });
+
   it('should resolve when importing from components alias', () => {
     expect(resolverPlugin.resolve('components/comp1', path.resolve(__dirname, 'file1.js'), opts))
       .to.eql({
