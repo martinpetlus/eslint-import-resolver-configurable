@@ -4,7 +4,7 @@ const path = require('path');
 
 exports.interfaceVersion = 2;
 
-exports.resolve = function (source, file, config) {
+exports.resolve = (source, file, config) => {
   if (resolve.isCore(source)) {
     return { found: true, path: null };
   }
