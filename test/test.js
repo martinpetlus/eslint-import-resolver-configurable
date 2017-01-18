@@ -15,8 +15,8 @@ const opts = {
 // eslint-disable-next-line no-underscore-dangle
 resolverPlugin.__set__('__dirname', __dirname);
 
-describe('eslint-import-resolver-configurable', function () {
-  it('should resolve when importing from components alias', function () {
+describe('eslint-import-resolver-configurable', () => {
+  it('should resolve when importing from components alias', () => {
     expect(resolverPlugin.resolve('components/comp1', path.resolve(__dirname, 'file1.js'), opts))
       .to.eql({
         found: true,
@@ -24,7 +24,7 @@ describe('eslint-import-resolver-configurable', function () {
       });
   });
 
-  it('should resolve when importing from common alias', function () {
+  it('should resolve when importing from common alias', () => {
     expect(resolverPlugin.resolve('common/comp2', path.resolve(__dirname, 'file2.js'), opts))
       .to.eql({
         found: true,
@@ -32,21 +32,21 @@ describe('eslint-import-resolver-configurable', function () {
       });
   });
 
-  it('should not resolve when importing from nonexistent alias', function () {
+  it('should not resolve when importing from nonexistent alias', () => {
     expect(resolverPlugin.resolve('nonexistent/comp3', path.resolve(__dirname, 'file3.js'), opts))
       .to.eql({
         found: false,
       });
   });
 
-  it('should not resolve when importing without plugin options', function () {
+  it('should not resolve when importing without plugin options', () => {
     expect(resolverPlugin.resolve('components/comp4', path.resolve(__dirname, 'file4.js'), {}))
       .to.eql({
         found: false,
       });
   });
 
-  it('should resolve when importing from common2 alias', function () {
+  it('should resolve when importing from common2 alias', () => {
     expect(resolverPlugin.resolve('common2/comp5', path.resolve(__dirname, 'file5.js'), opts))
       .to.eql({
         found: true,
@@ -54,7 +54,7 @@ describe('eslint-import-resolver-configurable', function () {
       });
   });
 
-  it('should resolve when importing core node module', function () {
+  it('should resolve when importing core node module', () => {
     expect(resolverPlugin.resolve('fs', path.resolve(__dirname, 'file6.js'), opts))
       .to.eql({
         found: true,

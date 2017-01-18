@@ -1,8 +1,7 @@
 {
   "extends": "airbnb-base",
   "rules": {
-    "func-names": "off",
-    "prefer-arrow-callback": "off"
+    "func-names": "off"
   },
   "env": {
     "mocha": true
