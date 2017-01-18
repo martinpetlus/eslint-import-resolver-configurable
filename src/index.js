@@ -11,7 +11,7 @@ exports.resolve = function (source, file, config) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const alias in config) {
-    if (source.match(new RegExp('^' + alias + '(/|$)'))) {
+    if (source.match(new RegExp(`^${alias}(/|$)`))) {
       const src = source.replace(alias, config[alias]);
 
       try {

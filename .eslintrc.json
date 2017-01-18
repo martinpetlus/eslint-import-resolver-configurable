@@ -2,7 +2,6 @@
   "extends": "airbnb-base",
   "rules": {
     "func-names": "off",
-    "prefer-template": "off",
     "prefer-arrow-callback": "off"
   },
   "env": {
