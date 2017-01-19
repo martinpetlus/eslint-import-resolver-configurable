@@ -14,7 +14,7 @@
     "prepublish": "npm test && npm run build",
     "lint": "eslint src test"
   },
-  "author": "Martin Petluš <martin.petlus@kistler.com>",
+  "author": "Martin Petluš <martinpetlus@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.18.0",
