@@ -1,10 +1,13 @@
 {
   "name": "eslint-import-resolver-configurable",
   "version": "0.1.0",
-  "description": "",
+  "description": "Resolve your aliases for proper linting of imports.",
   "repository": {
     "type": "git",
     "url": "https://github.com/martinpetlus/eslint-import-resolver-configurable.git"
+  },
+  "directories": {
+    "lib": "./lib"
   },
   "main": "lib/index.js",
   "scripts": {
