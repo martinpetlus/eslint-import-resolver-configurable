@@ -40,8 +40,7 @@
     "eslint": "^3.4.0",
     "eslint-config-airbnb-base": "^5.0.3",
     "eslint-plugin-import": "^1.14.0",
-    "mocha": "^3.0.2",
-    "rewire": "^2.5.2"
+    "mocha": "^3.0.2"
   },
   "dependencies": {
     "eslintrc-up": "^0.1.0",

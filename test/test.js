@@ -2,18 +2,14 @@
 
 const path = require('path');
 const expect = require('chai').expect;
-const rewire = require('rewire');
 
-const resolverPlugin = rewire('../lib/index');
+const resolverPlugin = require('../lib/index');
 
 const opts = {
   components: './dir/components',
   common: './dir/subdir/common',
   common2: './dir/subdir2',
 };
-
-// eslint-disable-next-line no-underscore-dangle
-resolverPlugin.__set__('__dirname', __dirname);
 
 describe('eslint-import-resolver-configurable', () => {
   it('should export interface version', () => {
