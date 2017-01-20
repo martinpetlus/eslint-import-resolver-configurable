@@ -1,6 +1,6 @@
 {
   "name": "eslint-import-resolver-configurable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Resolve your aliases for proper linting of imports.",
   "repository": {
     "type": "git",
