@@ -18,7 +18,9 @@ export function resolve(source, file, config) {
         return {
           found: true,
           path: resolvePkg.sync(src, {
-            basedir: path.dirname(eslintrcUp.sync({ cwd: __dirname })),
+            basedir: path.dirname(eslintrcUp.sync({
+              cwd: path.dirname(file),
+            })),
           }),
         };
       } catch (err) {} // eslint-disable-line no-empty
