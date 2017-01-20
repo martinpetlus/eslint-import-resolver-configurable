@@ -28,7 +28,9 @@ module.exports = {
   settings: {
     'import/resolver': {
       configurable: {
-        common: './src/subdir/common-components'
+        common: './src/subdir/common-components',
+        // Or absolute paths
+        components: '/path/to/some/dir'
       }
     }
   },
