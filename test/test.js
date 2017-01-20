@@ -9,6 +9,7 @@ const opts = {
   components: './dir/components',
   common: './dir/subdir/common',
   common2: './dir/subdir2',
+  common3: path.resolve(__dirname, 'dir/subdir/common'),
 };
 
 describe('eslint-import-resolver-configurable', () => {
@@ -59,6 +60,16 @@ describe('eslint-import-resolver-configurable', () => {
       .to.eql({
         found: true,
         path: null,
+      });
+  });
+
+  it('should resolve when absolute paths are specified', () => {
+    expect(
+      resolverPlugin.resolve('common3/subsubdir/comp6', path.resolve(__dirname, 'file7.js'), opts)
+    )
+      .to.eql({
+        found: true,
+        path: path.resolve(__dirname, 'dir/subdir/common/subsubdir/comp6.js'),
       });
   });
 });
